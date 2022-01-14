@@ -1,0 +1,185 @@
+<!DOCTYPE hteml>
+<html lang="ja">
+
+<head>
+<meta charset="UTF-8">
+<!-- ページタイトル -->
+<title>憩いの場 BLUEPOPPY アロマサロン</title>
+
+<meta name="keywords" content="アロママッサージ, 女性専用, Qi-Arignment,福岡市">
+<meta name="description" content="BLUEPOPPYアロマサロンのホームページです。">
+
+<!-- レスポンシブ対応の記述 -->
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+
+<!-- 電話番号らしき数字を自動でリンクにしないための記述 -->
+<meta name="format-detection" content="telephone=no">
+
+<!-- ファビコン：お気に入りで表示されるアイコン(37x37px) -->
+<link rel="shortcut icon" href="images/favicon.png">
+<!-- スマートフォン、タブレットで使用されるアイコン(180x180px) -->
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+<!-- リセットCSSの読み込み -->
+<link rel="stylesheet" href="css/normalize.css">
+<!-- スタイルの読み込み -->
+<link rel="stylesheet" href="css/style.css">
+
+<!-- jQuery  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+<!-- ヘッダー -->
+<header class="header">
+
+<!--ロゴ (ロゴをクリックしたらページトップに戻るよう<a>タグでリンクを記述)-->
+<h1 class="logo">
+  <a href="index.html">
+  <img src="images/old_logo.png" alt="BLUEPOPPYアロマサロンのロゴ画像" width="250px" height="250px" class="float">
+  </a>
+</h1>
+
+<!-- ナビゲーション用チェックボックス ※ブラウザ上は表示されません-->
+<input type="checkbox" name="navToggle" id="navToggle" class="nav-toggle">
+
+<!--ナビゲーション用ハンバーガーボタン-->
+<label for="navToggle" class="btn-burger" id="ham">
+	<span class="ham_line ham_line1"></span>
+	<span class="ham_line ham_line2"></span>
+	<span class="ham_line ham_line3"></span>
+</label>
+
+
+<!-- ナビゲーション -->
+<nav class="nav">
+<ul class="nav-list">
+  <li><a href ="menu/index.html">メニュー</a></li>
+  <li><a href="address/index.html">サロン情報</a></li>
+  <li><a href ="profile/index.html">プロフィール</a></li>
+  <li><a href="contact/index.html">ご予約・お問い合わせフォーム</a></li>
+</ul>
+</nav>
+<!-- ナビゲーションここまで -->
+</header>
+
+<!-- メインコンテンツ -->
+<main>
+
+
+<!-- セクション(お問い合わせ)-->
+<section class="section">
+<div class="row">
+
+
+<section class="col">
+<h3 class="leftBottom">ご予約・お問い合わせフォーム</h3>
+<div class="container">
+
+<!-- フォーム -->
+<form action="program.php" method="post">
+<!-- お名前 -->
+<div class="form-group">
+<!-- 項目名 -->
+<label for="yourName" class="form-label">お名前</label>
+<div class="form-col">
+<!-- 入力欄：テキスト -->
+<input type="text" name="お名前" id="yourName">
+</div>
+</div>
+
+
+<!-- E-Mail -->
+<div class="form-group">
+<!-- 項目名 -->
+<label for="yourEmail" class="form-label">E-Mail</label>
+<div class="form-col">
+<!-- 入力欄：email -->
+<input type="email" name="E-Mail" id="yourEmail">
+</div>
+</div>
+
+<!-- 電話番号 -->
+<div class="form-group">
+<!-- 項目名 -->
+<label for="yourTel" class="form-label">お電話番号</label>
+<div class="form-col">
+<!-- 入力欄：email -->
+<input type="tel" name="tel" id="yourTel">
+</div>
+</div>
+
+<!-- お問い合わせ内容 -->
+<div class="form-group">
+<!-- 項目名 -->
+<label for="yourInquiry" class="form-label">お問い合わせ内容</label>
+<div class="form-col">
+<!-- 入力欄：テキストエリア -->
+<textarea name="お問い合わせ内容" id="yourInquiry" cols="30" rows="10"></textarea>
+</div>
+</div>
+
+<!-- 送信ボタン -->
+<section>
+  <a href="#" class="btn_send">送信</a>
+</section>
+</form>
+<!-- フォームはココまで -->
+
+</div>
+</section>
+
+</div>
+</section>
+<!-- セクションココまで -->
+</main>
+<!-- メインコンテンツここまで -->
+
+
+<!-- フッター -->
+<footer class="footer">
+
+<!-- フッターロゴ -->
+<p class="footer-logo">
+  <a href="index.html">
+  <img src="images/logo.png" alt="BLUEPOPPYアロマサロンのロゴ画像" width="70px" height="50px">
+  </a>
+</p>
+
+<!-- SNSのリンクボタン -->
+<div class="footer-sns">
+  <a href="#" target="_blank">
+  <img src="images/btn_facebook.svg" alt="facebook">
+  </a>
+  <a href="#" target="_blank">
+  <img src="images/btn_instagram.svg" alt="instagram">
+  </a>
+</div>
+
+<!-- コピーライト -->
+<p class="copyright">
+  <small>&copy;Copyright 2019 MdN Corporation.</small>
+</p>
+
+</footer>
+<!-- フッターここまで -->
+
+<!-- Java Script はここから -->
+<!-- ハンバーガーボタンの実装 -->
+<script>
+/*閉じるボタンを作る*/
+const ham = document.getElementById('ham');
+ham.addEventListener('click', function() {
+	alert('test');
+});
+
+/*クリックされた際の処理にCSSのクラスを割り当てる処理を追加し、そのクラスが割り当てられている場合はハンバーガーボタンが×ボタンになるよう指定*/
+ham.addEventListener('click', function() {
+	ham.classList.toggle('clicked');
+});
+</script>
+<!-- ハンバーガーボタンの実装はここまで -->
+
+<!-- Java Scriptはここまで-->
+</body>
+</html>

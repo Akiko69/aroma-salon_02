@@ -1,0 +1,526 @@
+@charset "utf-8";
+
+/* 初期スタイル調整 */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* body全体の初期スタイル調整 */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont,"Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",Arial, "メイリオ", Meiryo, sans-sarif;
+  color: #806342;
+  background-color: #fff;
+}
+
+/* 各要素の初期スタイル調整 */
+h1, h3{
+  margin-top: 0;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+
+h2{
+  margin-top: 0;
+  padding-top: 65px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+}
+
+a {
+  color: #806342;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #806342;
+  text-decoration: underline;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+ul {
+  margin: 1em 0;
+  padding: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+/* ---------- 初期スタイル調整 ここまで ---------- */
+
+
+/* --------------------------------------------------
+  共通部分のスタイル指定
+-------------------------------------------------- */
+/*  ロゴ画像をふわふわ動くようにアニメーション
+https://qiita.com/Era_Yu36/items/0a6a64109e1fc3282ff1 */
+
+.float{
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+}
+@keyframes float {
+  0% {
+      transform: translate(0,0px);
+  }
+
+  100% {
+      transform: translate(0,-15px)
+  }
+}
+/*  アニメーションはここまで */
+
+/*ヘッダー*/
+.header{
+  position: relative;  /* ヘッダーの位置指定(メニューボタンの絶対配置の基準) */
+  padding: 15px 0 0;
+  background-color: #fff;
+}
+
+/*ロゴ*/
+.logo{
+  width: 140px;
+  margin: 0 auto; /* 左右中央揃えに配置 */
+  padding-bottom: 5px;
+}
+
+
+
+/* ナビゲーション用チェックボックス */
+/* --------------------
+  チェックボックスでメニュー項目の表示／非表示を切り替える。
+  ブラウザ上にはチェックボックスを表示したくないため、
+  「display: none;」で非表示にしている。
+  -------------------- */
+.nav-toggle {
+    display: none;
+}
+
+/* ハンバーガーボタン */
+.btn-burger {
+background-color: #806342;
+position: absolute; /*親要素（.header）を基準に絶対配置*/
+top: 5px;
+right: 10px;
+z-index: 2; /* ボックスの重なりの優先順位を指定。数値が大きいほど、手前（上）に配置される*/
+display: block; /*ブロックレベル性質になるため、幅・高さを指定できる*/
+width: 44px;
+height: 44px;
+cursor: pointer; /* カーソルの形状を指定 */
+}
+
+.ham_line {
+position: absolute;
+left: 10px;
+width: 23px;
+height: 2px;
+background-color: #fff;  /*(ハンバーガー)のラインの色*/
+transition: all 0.3s;  /*0.3秒のアニメーションで表現*/
+}
+.ham_line1 {
+	top: 10px;   /* 各ラインの間隔を調整 */
+}
+.ham_line2 {
+	top: 20px;   /* 各ラインの間隔を調整 */
+}
+.ham_line3 {
+	top: 30px;     /* 各ラインの間隔を調整 */
+}
+.clicked .ham_line1 {
+	transform: rotate(45deg); /*rotate(45deg)で時計回りに45度回転*/
+	top: 20px;
+}
+.clicked .ham_line2 {
+	width: 0px;   /*width: 0pxで実質非表示に変更*/
+}
+.clicked .ham_line3 {
+	transform: rotate(-45deg);/*rotate(-45deg)で反時計回りに45度回転*/
+	top: 20px;
+}
+/* ハンバーガーボタンの装飾はここまで */
+
+/* ナビゲーションリスト */
+.nav {
+  padding-top: 10px;
+  background: url("images/logo.png") center center / cover no-repeat;
+}
+
+.nav-list {
+    display: none; /* 最初はメニュー（ul要素）を非表示にしておく指定 */
+    margin: 0;
+    padding-bottom: 10px;
+    list-style: none;
+  }
+
+  .nav-list li {
+    margin: 0;
+    padding: 10px;
+  }
+
+.nav-list a {
+    display: block;  /* ブロックレベルで扱い、縦並びに表示している */
+    color: #806342;
+  }
+
+/* メニューが開いたとき、<ul>を表示する */
+.nav-toggle:checked ~ .nav .nav-list {
+  display: block;
+}
+
+/* ----------ナビゲーションのスタイル指定 ここまで---------- */
+
+/* セクション */
+.section{
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 10px;
+}
+
+/* 見出し(h2) */
+.top{
+  height: 300px;
+}
+
+.heading-section{
+  text-align: center;
+  padding-top: 65px;
+}
+
+
+.leftBottom{
+  padding-left: 10px;    /* 「border」と「文字」間の余白*/
+  border-left: 3px solid #806342;
+  border-bottom: 2px solid #806342;
+}
+
+/* トップページ横並び要素の見出し（h3） */
+.heading-topic {
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #806342;
+}
+
+/* フッター全体 */
+.footer {
+  padding: 40px 0 30px;
+  text-align: center;
+  background-color: #806342;
+}
+
+
+/* SNSのリンクボタン */
+.footer-sns {
+  margin: 20px 0;
+  text-align: center; /* 中身を左右中央揃えで配置 */
+}
+.footer-sns a {
+/* インラインの性質を保ちながら、ブロックレベルの性質を加えている。横並びに配置しながら、外余白を指定 */
+  display: inline-block;
+  margin: 0 5px;
+}
+.footer-sns img {
+  vertical-align: middle; /* 垂直方向中央揃えで配置*/
+}
+
+/* コピーライト */
+.copyright {
+  margin: 0;
+  color: #fff;
+}
+.copyright small {
+  font-size: 11px;
+}
+
+/* --------------------------------------------------
+  トップページ
+-------------------------------------------------- */
+
+/* メインイメージ */
+.top {
+  height: 200px;
+  margin-bottom: 50px;
+  background-color: #806342;
+}
+
+/* 横並び要素（幅768px未満では縦並びで配置される） */
+.col {
+  max-width: 300px;
+  margin: 0 auto 50px;
+}
+.col-image {
+  margin-bottom: 10px;
+}
+.col p {
+  margin-bottom: 0;
+}
+
+/*----------------------------------------------------------
+  メニュー
+-----------------------------------------------------------*/
+.col {
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+ul {
+  padding-left: 70px;
+}
+
+ul li:nth-child(7){
+  list-style: none;  /*<li>タグの7番目だけオリジナルマーカーを非表示にする*/
+  padding-left: 0em;
+  padding-top: 1em;
+}
+
+ul li:nth-child(7)::before{
+  padding-right: 0.5em;    /*マーカーとテキストの間にスペース*/
+  content: "※";
+  margin-left: 0;
+}
+
+/*----------------------------------------------------------
+  サロン情報
+-----------------------------------------------------------*/
+
+/*----------------------------------------------------------
+  プロフィール
+----------------------------------------------------------*/
+
+
+
+/*----------------------------------------------------------
+  お問い合わせフォーム
+-----------------------------------------------------------*/
+
+
+
+/* スムーススクロールのボタンを非表示 */
+.page-top{
+  display: none;
+}
+/* --------------------------------------------------
+  幅768px未満のスタイル指定 ここまで
+-------------------------------------------------- */
+
+
+
+/* --------------------------------------------------
+  幅768px以上のスタイル指定 ここから
+-------------------------------------------------- */
+
+@media screen and (min-width: 768px) {
+  /* ヘッダー */
+  .header {
+    padding: 40px 0 0;
+  }
+
+  /* ロゴ */
+  .logo {
+    width: auto;
+    margin: 0 0 20px;
+    padding: 0;
+    text-align: center;
+  }
+
+  /* ハンバーガーボタン */
+  .btn-burger {
+    display: none; /* 768px以上では使用しない */
+  }
+
+  /* ナビゲーション */
+  .nav {
+    padding: 40px 0;
+  }
+
+  .nav-list {
+    /* flexbox（横並びにする要素の親に指定） */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;      /* flexboxの適応(親要素)*/
+    /* フレックスアイテムを主軸方向（横方向）中央揃えで配置 */
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    /* フレックスアイテムを交差軸方向（縦方向）中央揃えで配置 */
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+  }
+
+  .nav-list li {
+    /* フレックスアイテムに対する指定 */
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;     /* flexboxの適応(子要素) */
+    padding: 0 20px;
+    line-height: 1;
+    border-right: 1px solid #806342; /* 縦棒を表示 */
+  }
+
+  .nav-list li:first-child {
+    border-left: 1px solid #806342; /* 縦棒を表示 */
+  }
+  /* 幅768px未満でメニューを開いた状態から、ウィンドウ幅を768px以上に広げたとき、メニューにflexboxを適用して<li>を横並び表示に切り替える */
+  .nav-toggle:checked ~ .nav .nav-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* セクション */
+.section {
+    margin-bottom: 100px;
+}
+
+  /* 見出し（h2） */
+.heading-section {
+  margin-bottom: 50px;
+}
+
+/*----------------------------------------------------------
+スムーススクロール
+---------------------------------------------------------*/
+
+/* ボタンのスタイル */
+#page-top {
+  /* buttonタグのリセットCSS */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+
+  /* ボタンの装飾 */
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #806342;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* 矢印のスタイル */
+#page-top::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  margin-bottom: -6px;
+  border-top: solid 3px #fff;
+  border-right: solid 3px #fff;
+  transform: rotate(-45deg);
+}
+
+/* ホバー時のスタイル */
+#page-top:hover {
+  transform: scale(1.1);
+}
+/*-------------------------------------------------------*/
+
+  /* フッター */
+  .footer {
+    padding: 50px 0 20px;
+  }
+  .footer-sns {
+    margin: 30px 0;
+  }
+
+
+/* --------------------------------------------------
+  トップページ
+-------------------------------------------------- */
+
+/* メインイメージ */
+.top {
+  height: 150px;
+  margin-bottom: 70px;
+}
+
+/* 横並び */
+.row {
+  /* flexbox（横並びにする要素の親に指定） */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-around; /* 要素の配置 */
+}
+
+/* 横並び要素 */
+.col {
+/* フレックスアイテムに対する指定 */
+  -webkit-box-flex: 0;
+  -ms-flex: 0 1 100%;
+  flex: 0 1 100%;
+  margin: 0;
+}
+
+/* --------------------------------------------------
+  メニュー
+-------------------------------------------------- */
+.col {
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+ul{
+  padding-left: 150px;
+}
+
+ul li:nth-child(7){
+  list-style: none;  /*<li>タグの7番目だけオリジナルマーカーを非表示にする*/
+  padding-left: 0px;
+}
+
+ul li:nth-child(7)::before{
+  padding-right: 0.5em;    /*マーカーとテキストの間にスペース*/
+  content: "※";
+}
+
+
+/* ------------------------------------------------------
+サロン情報
+-------------------------------------------------------*/
+
+/*--------------------------------------------------------
+  プロフィール
+---------------------------------------------------------*/
+
+
+/* --------------------------------------------------
+  お問い合わせフォーム
+-------------------------------------------------- */
+
+
+
+  /* --------------------------------------------------
+  幅768px以上のスタイル指定 ここまで
+  -------------------------------------------------- */
